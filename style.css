@@ -1,6 +1,7 @@
 .pageTitle {
   font-size: 28pt;
   background-color: #F7BE81;
+  padding: 5px 15px; /* 上下 左右 */
   /*border-bottom: solid 2px #FE9A2E;
   border-left: solid 7px #FE9A2E;*/
 }
@@ -9,4 +10,5 @@
   font-size: 24pt;
   border-bottom: solid 2px #FE9A2E;
   border-left: solid 8px #FE9A2E;
+  padding-left: 10px;
 }
