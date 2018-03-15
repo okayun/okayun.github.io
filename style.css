@@ -6,9 +6,14 @@
   border-left: solid 7px #FE9A2E;*/
 }
 
-.section {
+.sect {
   font-size: 24pt;
   border-bottom: solid 2px #FE9A2E;
   border-left: solid 8px #FE9A2E;
   padding-left: 10px;
+}
+
+.tekitou {
+  font-size: 20pt;
+  color: #FF0000;
 }
