@@ -1,5 +1,7 @@
 .pageTitle {
   font-size: 26pt;
+  border-bottom: solid 1px #FE9A2E;
+  border-left: solid 3px #FE9A2E;
 }
 
 .comment {
