@@ -1,9 +1,12 @@
 .pageTitle {
-  font-size: 26pt;
-  border-bottom: solid 1px #FE9A2E;
-  border-left: solid 3px #FE9A2E;
+  font-size: 28pt;
+  background-color: #F7BE81;
+  /*border-bottom: solid 2px #FE9A2E;
+  border-left: solid 7px #FE9A2E;*/
 }
 
-.comment {
-  font-size: 18pt;
+.section {
+  font-size: 24pt;
+  border-bottom: solid 2px #FE9A2E;
+  border-left: solid 7px #FE9A2E;
 }
