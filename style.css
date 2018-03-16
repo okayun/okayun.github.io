@@ -75,7 +75,79 @@
 
 /* ここまで */
 
-/* 適当 */
+/* ナビ */
+#pageHead .globalNavi {
+  border: solid #CCCCCC;
+  border-width: 1px 0;
+  padding: 10px 0;
+}
+
+#pageHead .globalNavi ul {
+  margin: 0;
+  padding: 0;
+}
+
+/* clearfix */
+#pageHead .globalNavi ul:after {
+  content: "";
+  clear: both;
+  display: block;
+}
+
+#pageHead .globalNavi ul li {
+  list-style: none;
+  width: 490px; /* 980 / 2 = 490 */
+  float: left;
+  border-left: solid 1px #CCCCCC;
+  padding: 0 10px;
+  box-sizing: border-box;
+  text-align: center;
+  font-size: 14px;
+  line-height: 1.429;
+}
+
+#pageHead .globalNavi ul li:first-child {
+  border-left: none;
+}
+
+#pageHead .globalNavi ul li a {
+  color: inherit; /* リンクの色? */
+  text-decoration: none; /* リンクの文字の下線を消す */
+}
+
+/* リンクにマウスポインタが重なったときの設定 */
+#pageHead .globalNavi ul li a:hover {
+  background-color: #F5D0A9; /* 背景色変更 */
+}
+
+#pageBodySub .localNavi ul {
+  margin-left: 0;
+  padding-left: 0;
+}
+
+#pageBodySub .localNavi ul li {
+  list-style: none;
+}
+
+#pageBodySub .localNavi ul li a {
+  text-decoration: none;
+  color: inherit;
+}
+
+#pageBodySub .localNavi ul li a:hover {
+  background-color: #A9F5F2;
+}
+
+/* clearfix */
+#pageBodySub .localNavi ul:after {
+  content: "";
+  clear: both;
+  display: block;
+}
+
+/* ナビここまで */
+
+/* あれこれ */
 
 .chapter {
   font-size: 24pt;
