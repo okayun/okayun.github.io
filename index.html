@@ -1,13 +1,58 @@
 <!DOCTYPE HTML>
 <html lang="ja">
-  <head>
+
+<head>
     <title>おかゆのページ</title>
     <link rel="stylesheet" href="./style.css">
-  </head> 
-  <body>
-    <h1 class="pageTitle"> おかゆのページ </h1>
-    
-    <h1 class="sect"> 概要 </h1>
-      <p class="tekitou"> 拙者、github分からん侍 </p>
-  </body>
+</head>
+
+<body>
+    <div id="pageAll">
+        <!-- ヘッダ -->
+        <header id="pageHead">
+            <h1 id="siteTitle">おかゆのページ</h1>
+            <p id="catchcopy">パスタを茹ですぎたときの絶望感といったら...</p>
+        </header>
+
+
+        <div id="pageBody">
+            <!-- ウェブページのメインコンテンツ -->
+            <div id="pageBodyMain">
+                <article>
+                    <h1 class="chapter"> メインコンテンツ </h1>
+                    <p class="tekitou"> 拙者、github分からん侍 </p>
+                </article>
+            </div>
+
+
+            <!-- ウェブページのサブコンテンツかなにか -->
+            <div id="pageBodySub">
+                <section>
+                    <h1 id="newsTitle">お知らせ</h1>
+                    <!--
+                        <h2>リスト</h2> 
+                    -->
+                    <ol id="newsContents">
+                        <li>
+                            <time>2018.3.16</time>
+                            お腹が空いています
+                        </li>
+
+                        <li>
+                            <time>2018.3.15</time>
+                            喉が乾いています
+                        </li>
+                    </ol>
+                </section>
+            </div>
+        </div>
+
+
+        <!-- フッタ -->
+        <footer id="pageFoot">
+            ここはフッタ
+        </footer>
+    </div>
+</body>
+
 </html>
