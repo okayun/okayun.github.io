@@ -1,19 +1,112 @@
-.pageTitle {
-  font-size: 28pt;
-  background-color: #F7BE81;
-  padding: 5px 15px; /* 上下 左右 */
+
+/* サイトのタイトル */
+
+#siteTitle {
+  font-size: 30pt;
+  line-height: 1.2;
+  /*background-color: #F7BE81;*/
+  margin-bottom: 0;
+  font-family: serif;
+  /*padding: 5px 15px; /* 上下 左右 */
   /*border-bottom: solid 2px #FE9A2E;
   border-left: solid 7px #FE9A2E;*/
 }
 
-.sect {
+#catchcopy {
+  font-size: 12px;
+  line-height: 1.2;
+  margin-top: 0;
+}
+
+/* ここまで */
+
+/* ページフッタ */
+
+#pageHead {
+  /*border-bottom: solid 1px #000000;*/
+  margin-bottom: 30px;
+}
+
+#pageFoot {
+  border-top: solid 1px #000000;
+  border-bottom: solid 1px #000000;
+  margin-top: 15px;
+}
+
+/* ここまで */
+
+/* ページボディ */
+
+#pageAll {
+  width: 980px;
+  margin: 0 auto;
+}
+
+#pageBody {
+  /*background-color: #FFCC66;
+  border: solid 10px #FF0000;
+  */
+}
+
+#pageBody:after {
+  content: "";
+  clear: both;
+  display: block;
+}
+
+#pageBodyMain {
+  width: 720px;
+  float: left;
+  /*background-color: #66CCFF;*/
+  margin-top: 0;
+}
+
+#pageBodySub {
+  width: 220px;
+  float: right;
+  /*background-color: #99FF66;*/
+}
+
+/*
+#newsTitle {
+  background-color: #FCDD0F
+}
+*/
+
+/* ここまで */
+
+/* 適当 */
+
+.chapter {
   font-size: 24pt;
-  border-bottom: solid 2px #FE9A2E;
+  line-height: 1.2;
+  /*border-bottom: solid 2px #FE9A2E;*/
   border-left: solid 8px #FE9A2E;
   padding-left: 10px;
+  margin-top: 0;
+}
+
+#newsTitle {
+  font-size: 24pt;
+  line-height: 1.2;
+  border-bottom: solid 1px #FE9A2E;
+  border-left: solid 8px #FE9A2E;
+  padding-left: 10px;
+  margin-top: 0;
+}
+
+#newsContents {
+  list-style: none;
+  padding: 0;
 }
 
 .tekitou {
   font-size: 20pt;
+  line-height: 1.2;
   color: #FF0000;
+}
+
+time {
+  font-weight: bold;
+  display: block;
 }
