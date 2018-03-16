@@ -29,7 +29,7 @@
 
 #pageFoot {
   border-top: solid 1px #000000;
-  border-bottom: solid 1px #000000;
+  /*border-bottom: solid 1px #000000;*/
   margin-top: 15px;
 }
 
@@ -117,7 +117,7 @@
 
 /* リンクにマウスポインタが重なったときの設定 */
 #pageHead .globalNavi ul li a:hover {
-  background-color: #F5D0A9; /* 背景色変更 */
+  background-color: #A9F5A9; /* 背景色変更 */
 }
 
 #pageBodySub .localNavi ul {
@@ -135,7 +135,7 @@
 }
 
 #pageBodySub .localNavi ul li a:hover {
-  background-color: #A9F5F2;
+  background-color: #A9F5A9;
 }
 
 /* clearfix */
@@ -158,12 +158,13 @@
   margin-top: 0;
 }
 
-#newsTitle {
-  font-size: 24pt;
+.subContentsTitle {
+  font-size: 18pt;
   line-height: 1.2;
-  border-bottom: solid 1px #FE9A2E;
-  border-left: solid 8px #FE9A2E;
-  padding-left: 10px;
+  background-color: #F5D0A9;
+  /*border-bottom: solid 1px #FE9A2E;*/
+  /*border-left: solid 8px #FE9A2E;*/
+  /*padding-left: 10px;*/
   margin-top: 0;
 }
 
