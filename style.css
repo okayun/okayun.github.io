@@ -113,11 +113,13 @@
 #pageHead .globalNavi ul li a {
   color: inherit; /* リンクの色? */
   text-decoration: none; /* リンクの文字の下線を消す */
+  display: block;
+  padding: 5px, 0;
 }
 
 /* リンクにマウスポインタが重なったときの設定 */
 #pageHead .globalNavi ul li a:hover {
-  background-color: #A9F5A9; /* 背景色変更 */
+  background-color: #F5D0A9; /* 背景色変更 */
 }
 
 #pageBodySub .localNavi ul {
@@ -135,7 +137,7 @@
 }
 
 #pageBodySub .localNavi ul li a:hover {
-  background-color: #A9F5A9;
+  background-color: #F5D0A9;
 }
 
 /* clearfix */
