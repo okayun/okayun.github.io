@@ -2,3 +2,8 @@
   text-decoration: none;
   color: #FF8000;
 }
+
+/* 各ページ毎に設定 */
+#pageHead .globalNavi ul li.current a {
+  background-color: #F5D0A9;
+}
