@@ -2,3 +2,8 @@
   text-decoration: none;
   color: #FF8000;
 }
+
+/* 各ページのcssファイル毎に設定 */
+#pageHead .globalNavi ul li a:first-child {
+  background-color: #F5D0A9;
+}
