@@ -96,7 +96,7 @@
 
 #pageHead .globalNavi ul li {
   list-style: none;
-  width: 490px; /* 980 / 2 = 490 */
+  width: 326px; /* 980 / 3 = 326 */
   float: left;
   border-left: solid 1px #CCCCCC;
   padding: 0 10px;
