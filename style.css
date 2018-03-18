@@ -1,3 +1,4 @@
+
 /* サイトのタイトル */
 
 #siteTitle {
@@ -118,7 +119,7 @@
 
 /* リンクにマウスポインタが重なったときの設定 */
 #pageHead .globalNavi ul li a:hover {
-  background-color: #F5D0A9; /* 背景色変更 */
+  background-color: #F6E3CE; /* 背景色変更 */
 }
 
 #pageBodySub .localNavi ul {
@@ -136,7 +137,7 @@
 }
 
 #pageBodySub .localNavi ul li a:hover {
-  background-color: #F5D0A9;
+  background-color: #F6E3CE;
 }
 
 /* clearfix */
@@ -162,7 +163,7 @@
 .subContentsTitle {
   font-size: 18pt;
   line-height: 1.2;
-  background-color: #F5D0A9;
+  background-color: #F6E3CE;
   /*border-bottom: solid 1px #FE9A2E;*/
   /*border-left: solid 8px #FE9A2E;*/
   /*padding-left: 10px;*/
