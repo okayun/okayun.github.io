@@ -10,13 +10,19 @@
     <link rel="stylesheet" href="./programming.css">
 
     <!-- syntax highlighter -->
+    <!--
     <script src="./syntaxhighlighter/scripts/shCore.js"></script>
     <script src="./syntaxhighlighter/scripts/shBrushCpp.js"></script>
     <link rel="stylesheet" href="./syntaxhighlighter/styles/shCoreDefault.css" type="text/css" />
     <script type="text/javascript">
         SyntaxHighlighter.all();
     </script>
+    -->
     <!-- syntax highlighter -->
+
+    <!-- highlight.js -->
+    <link rel="stylesheet" href="./obsidian.css">
+    <script src="./highlight.pack.js"></script>
 </head>
 
 <body>
@@ -55,7 +61,7 @@
                         ここにはプログラミングに関するいろいろを掲載する予定です.
                     </p>
                     <p>テスト SegmentTree</p>
-                    <pre class="brush:cpp">
+                    <pre><code class="c++">
 template &lt;typename T&gt;
 class SegmentTree {
 private:
@@ -105,7 +111,7 @@ public:
     return query(l, r, 0, 0, n);
   }
 };
-                    </pre>
+                    </code></pre>
                 </article>
             </div>
 
