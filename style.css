@@ -37,9 +37,15 @@
 
 /* ページボディ */
 
+body {
+  background-color: #fcefde;
+}
+
 #pageAll {
   width: 980px;
+  padding: 0 20px;
   margin: 0 auto;
+  background-color: #FFFFFF;
 }
 
 #pageBody {
