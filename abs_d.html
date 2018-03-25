@@ -1,0 +1,431 @@
+<!DOCTYPE HTML>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+    <title>
+        おかゆのページ
+    </title>
+    <link rel="stylesheet" href="./style.css">
+    <link rel="stylesheet" href="./programming.css">
+
+    <!-- syntax highlighter -->
+    <!--
+    <script src="./syntaxhighlighter/scripts/shCore.js"></script>
+    <script src="./syntaxhighlighter/scripts/shBrushCpp.js"></script>
+    <link rel="stylesheet" href="./syntaxhighlighter/styles/shCoreDefault.css" type="text/css" />
+    <script type="text/javascript">
+        SyntaxHighlighter.all();
+    </script>
+    -->
+    <!-- syntax highlighter -->
+
+    <!-- highlight.js -->
+    <link rel="stylesheet" href="./obsidian.css">
+    <script src="./highlight.pack.js"></script>
+</head>
+
+<body>
+    <div id="pageAll">
+        <!-- ヘッダ -->
+        <header id="pageHead">
+            <h1 id="siteTitle">
+                おかゆのページ
+            </h1>
+            <p id="catchcopy">
+                パスタを茹ですぎたときの絶望感といったら...
+            </p>
+
+            <nav class="globalNavi">
+                <ul>
+                    <li>
+                        <a href="https://okayun.github.io">ホーム</a>
+                    </li>
+                    <li class="current">
+                        <a href="https://okayun.github.io/programming.html">プログラミング関係</a>
+                    </li>
+                    <li>
+                        <a href="https://okayun.github.io/React.html">React</a>
+                    </li>
+                </ul>
+            </nav>
+        </header>
+
+
+        <div id="pageBody">
+            <!-- ウェブページのメインコンテンツ -->
+            <div id="pageBodyMain">
+                <article>
+                    <h1 class="chapter"> AtCoder Beginner Selection(D) </h1>
+                    <p>
+                        ここでは, AtCoder Beginner SelectionをD言語を使って解いたときのソースコードを載せます.
+                    </p>
+
+                    <ol>
+                        <li>
+                            <a href="https://beta.atcoder.jp/contests/abc086/tasks/abc086_a" target="_blank">Product</a>
+                            <p>与えられる2つの整数の積の偶奇を判定する問題です.</p>
+                            <pre><code class="d">
+import std.stdio;
+import std.string;
+import std.algorithm;
+import std.conv;
+
+void main() {
+  auto l = readln.chomp.split.map!(to!int);
+  ((l[0] * l[1]) % 2 ? "Odd" : "Even").writeln;
+}
+                            </code></pre>
+                        </li>
+
+                        <li>
+                            <a href="" target="_blank">Placing Marbles</a>
+                            <p>文字列に含まれる1の数を数える問題です. countを使用すると簡潔に書くことが出来ます.</p>
+                            <pre><code class="d">
+import std.stdio;
+import std.string;
+import std.algorithm;
+import std.conv;
+
+void main() {
+  readln.chomp.count('1').writeln;
+}                               
+                            </code></pre>
+                        </li>
+                        <li>
+                            <a href="" target="_blank">Shift Only</a>
+                            <p>数列のすべての要素が偶数のとき, 各要素を2で割る, という操作を何回できるか?という問題です.
+                                <br> 各要素について, その要素が奇数になるまで2で割り続けたときの回数の最小値を取ればよいです.</p>
+                            <pre><code class="d">
+import std.stdio;
+import std.string;
+import std.algorithm;
+import std.conv;
+
+void main() {
+  int N = readln.chomp.to!int;
+  auto A = readln.chomp.split.map!(to!int);
+  int ans = (1e9).to!int;
+  
+  foreach(a; A) {
+    int tmp;
+    
+    while (a % 2 == 0 && a > 0) {
+      tmp++;
+      a /= 2;
+    }
+    
+    ans = min(ans, tmp);
+  }
+
+  ans.writeln;
+}
+                            </code></pre>
+                        </li>
+                        <li>
+                            <a href="" target="_blank">Coins</a>
+                            <p>あなたは500円玉をA枚, 100円玉をB枚, 50円玉をC枚持っています. 500円玉, 100円玉, 50円玉を複数枚使ってX円にする方法は何通りありますか?という問題です.
+                                <br> 制約が小さいので全探索します.
+                            </p>
+                            <pre><code class="d">
+import std.stdio;
+import std.string;
+import std.algorithm;
+import std.conv;
+
+void main() {
+  int[3] coins;
+  int x, ans;
+  
+  for (int i = 0; i < 3; i++) {
+    coins[i] = readln.chomp.to!int + 1;
+  }
+  x = readln.chomp.to!int;
+  
+  foreach (i; 0..coins[0]) {
+    foreach (j; 0..coins[1]) {
+      foreach (k; 0..coins[2]) {
+        int sum = 500 * i + 100 * j + 50 * k;
+        
+        if (sum == x) {
+          ans++;
+        }
+        else if (sum> x) {
+          break;
+        }
+      }
+    }
+  }
+  
+  ans.writeln;
+}
+                            </code></pre>
+                        </li>
+                        <li>
+                            <a href="" target="_blank">Some Sums</a>
+                            <p>1からnまでの整数のうち, 各桁の和がA以上B以下であるものの和を求めなさい, という問題です.
+                                <br> これも愚直に数えます.
+                            </p>
+                            <pre><code class="d">
+import std.stdio;
+import std.algorithm;
+import std.array;
+import std.conv;
+import std.string;
+
+void main() {
+  int n, a, b;
+  auto l = readln.chomp.split.map!(to!int);
+  n = l[0], a = l[1], b = l[2];
+  long ans; // longである必要はない
+  
+  foreach(i; 1..(n + 1)) {
+    int sum, num = i;
+    
+    while (num > 0) {
+      sum += (num % 10); num /= 10;
+    }
+
+    if (a <= sum && sum <= b) {
+      ans += i;
+    }
+  }
+  
+  ans.writeln;
+}       
+                            </code></pre>
+                        </li>
+                        <li>
+                            <a href="" target="_blank">Card Game for Two</a>
+                            <p>AliceとBobがあるゲームをします. N枚のカード(i番目のカードにはa_iという数が書かれている)の中から, AliceとBobが交互にカードを1枚ずつ取っていきます. 2人がカードをすべて取るとゲーム終了で,
+                                その時に所持しているカードの和が大きい方が勝利する, というゲームです.
+                                <br> 2人が最適な戦略を取ったときにAliceがBobより何点多く取るかを求めなさい, という問題です.
+                                <br> この問題ではソートを使います.
+                            </p>
+                            <pre><code class="d">
+import std.stdio;
+import std.algorithm;
+import std.array;
+import std.conv;
+import std.string;
+
+void main() {
+  int n = readln.chomp.to!int;
+  auto a = readln.chomp.split.map!(to!int).array;
+  
+  a.sort!("a > b");
+  
+  int alice, bob;
+  
+  foreach(i, num; a) {
+    if (i % 2) {
+      bob += num;
+    }
+    else {
+      alice += num;
+    }
+  }
+  
+  writeln(alice - bob);
+}
+                            </code></pre>
+                        </li>
+                        <li>
+                            <a href="" target="_blank">Kagami Mochi</a>
+                            <p>N個の円形の餅があります. i番目の餅の直径はd_iです. これらを下から順に重ねるのですが, 一つルールがあります. それは, 餅を餅の上に重ねるときは必ず下の餅よりも上の餅の直径が小さくなければならないというルールです.
+                                このルールに従って餅を重ねるとき, 最大で何枚重ねの鏡餅を作れますか?という問題です.
+                                <br> 色々解き方はありますが, 私は連想配列を使用しました.
+                            </p>
+                            <pre><code class="d">
+import std.stdio;
+import std.algorithm;
+import std.array;
+import std.conv;
+import std.string;
+
+void main() {
+  int n = readln.chomp.to!int, ans;
+  bool[int] mp;
+
+  foreach(i; 0..n) {
+    int d = readln.chomp.to!int;
+
+    // keyが連想配列に登録されているかどうか 
+    if ((d in mp) == null) {
+      ans++;
+      mp[d] = true;
+    }
+  }
+
+  ans.writeln;
+}
+                            </code></pre>
+                        </li>
+                        <li>
+                            <a href="" target="_blank">Otoshidama</a>
+                            <p>この問題はCoinsとちょっと似ています. 問題の概要ですが, 1万円, 5千円, 千円の紙幣を合計N枚使用してY円を支払うことが可能か?というものです.
+                                <br> こちらはCoinsと同様に3重ループで全探索しようとすると計算量がO(N^3)となり, Nは最大2000なのでTLEしてしまいます. しかし,必ずN枚紙幣を使うので, 紙幣2種類の枚数を決めると最後の紙幣の枚数は自然と決まるので
+                                2重ループで十分であることがわかります. つまり, O(N^2)で解くことができます(場合分けなどを頑張るとO(1)で解けるそうです).
+                            </p>
+                            <pre><code class="d">
+import std.stdio;
+import std.algorithm;
+import std.array;
+import std.conv;
+import std.string;
+
+void main() {
+  int N, Y;
+  auto l = readln.chomp.split.map!(to!int).array;
+
+  N = l[0], Y = l[1];
+
+  for (int i = 0; i <= N; ++i) {
+    for (int j = 0; j <= N - i; ++j) {
+      int k = N - i - j;
+      int sum = 10000 * i + 5000 * j + 1000 * k;
+
+      if (sum == Y) {
+        writeln(i, " ", j, " ", k);
+        return;
+      }
+    }
+  }
+
+  writeln(-1, " ", -1, " ", -1);
+
+  return;
+}
+                                
+                            </code></pre>
+                        </li>
+                        <li>
+                            <a href="" target="_blank">Daydream</a>
+                            <p>
+                                文字列Sが与えられるので, "dream", "dreamer", "erase", "eraser"の4つの文字列を複数回使用してSにできますか?という問題です.
+                                <br> 一見面倒ですが, Sを後ろから調べることで貪欲に解くことが出来ます.
+                            </p>
+                            <pre><code class="d">
+import std.stdio;
+import std.algorithm;
+import std.array;
+import std.conv;
+import std.string;
+
+void main() {
+  string str = readln.chomp;
+
+  // array.lengthの返り値の型はulongなので
+  // intに代入しようとすると(dmd64 v2.070.1では)CEになる
+  int p = str.length.to!int;
+
+  while (p > 0) {
+    if (str[(p - 7)..p] == "dreamer") {
+      p -= 7;
+    }
+    else if (str[(p - 6)..p] == "eraser") {
+      p -= 6;
+    }
+    else if (str[(p - 5)..p] == "erase") {
+      p -= 5;
+    }
+    else if (str[(p - 5)..p] == "dream") {
+      p -= 5;
+    }
+    else {
+      p = -1;
+    }
+  }
+
+  if (p == 0) {
+    writeln("YES");
+  }
+  else {
+    writeln("NO");
+  }
+
+  return;
+}     
+                            </code></pre>
+                        </li>
+                        <li>
+                            <a href="" target="_blank">Traveling</a>
+                            <p>説明がめんどくさいので簡単にまとめると, AtCoDeerくんの旅行計画が与えられるので, そのような軽作が可能かどうかを判定してください, という問題です.
+                                <br> この問題では, ある時刻tでの位置(x, y)と, 次の時刻t'での位置(x', y')について, 時刻の差と2点間の距離に着目してあげると解くことが出来ます.
+                            </p>
+                            <pre><code class="d">
+import std.stdio;
+import std.algorithm;
+import std.array;
+import std.conv;
+import std.string;
+import std.math;
+
+void main() {
+  int N;
+  N = readln.chomp.to!int;
+
+  auto s = [0, 0, 0];
+  bool is_reach = true;
+
+  for (int i = 0; i < N; ++i) {
+    auto g = readln.chomp.split.map!(to!int).array;
+    int t = g[0] - s[0], dist = abs(g[1] - s[1]) + abs(g[2] - s[2]);
+
+    if (!(t >= dist && (t - dist) % 2 == 0)) {
+      is_reach = false;
+    }
+
+    s = g;
+  }
+
+  if (is_reach) {
+    writeln("Yes");
+  }
+  else {
+    writeln("No");
+  }
+
+  return;
+}                               
+                            </code></pre>
+                        </li>
+
+                    </ol>
+                </article>
+            </div>
+
+
+            <!-- ウェブページのサブコンテンツかなにか -->
+            <div id="pageBodySub">
+                <nav class="localNavi">
+                    <h1 class="subContentsTitle">各種リンク</h1>
+                    <ul>
+                        <li>
+                            <a href="https://beta.atcoder.jp/users/otyaduke_117" target="_blank">おかゆ(AtCoder)</a>
+                        </li>
+                        <li>
+                            <a href="http://codeforces.com/profile/okayu" target="_blank">おかゆ(Codeforces)</a>
+                        </li>
+                        <li>
+                            <a href="https://www.codingame.com/profile/9509707e2cfc38002fecac65fd48b19f2757061" target="_blank">おかゆ(CodinGame)</a>
+                        </li>
+                        <li>
+                            <a href="http://okayunonaha.hatenablog.com/">おかゆ(はてなブログ)</a>
+                        </li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+
+
+        <!-- フッタ -->
+        <footer id="pageFoot">
+            <p id="copyright">
+                <small>Copyright&copy; 2018 おかゆのページ All Rights Reserved.</small>
+            </p>
+        </footer>
+    </div>
+</body>
+
+</html>
