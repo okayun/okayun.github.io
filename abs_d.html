@@ -56,10 +56,14 @@
             <!-- ウェブページのメインコンテンツ -->
             <div id="pageBodyMain">
                 <article>
-                    <h1 class="chapter"> AtCoder Beginner Selection(D)(仮) </h1>
+                    <h1 class="chapter"> AtCoder Beginners Selection(D) </h1>
                     <p>
-                        ここでは, AtCoder Beginner SelectionをD言語を使って解いたときのソースコードを載せます.
-                        AtCoder Beginner Selectionについては, drkenさんの記事(リンク貼る)またはAtCoderの公式サイト(?)(リンク貼る)を御覧ください.
+                        ここでは, AtCoder Beginners SelectionをD言語を使って解いたときのソースコードを掲載しています.
+                        <br> AtCoder Beginners Selectionについては,
+                        <a href="https://qiita.com/drken/items/fd4e5e3630d0f5859067#5-%E9%81%8E%E5%8E%BB%E5%95%8F%E7%B2%BE%E9%81%B8-10-%E5%95%8F">drkenさんの記事</a>または
+                        <a href="https://beta.atcoder.jp/contests/abs">AtCoderのAtCoder Beginners Selectionのページ</a>を御覧ください.
+                        <br> ここではソースコードを載せているだけなので, 詳しい解説がご覧になりたい方は
+                        <a href="http://takeo1116.sakura.ne.jp/ABS_D.html">竹雄さんの記事</a>を御覧ください.
                     </p>
 
                     <ol>
@@ -81,7 +85,7 @@ void main() {
 
                         <li>
                             <a href="" target="_blank">Placing Marbles</a>
-                            <p>文字列に含まれる1の数を数える問題です. countを使用すると簡潔に書くことが出来ます.</p>
+                            <p>文字列に含まれる1の個数を答える問題です. countを使用すると簡潔に書くことが出来ます.</p>
                             <pre><code class="d">
 import std.stdio;
 import std.string;
@@ -184,7 +188,8 @@ void main() {
     int sum, num = i;
     
     while (num > 0) {
-      sum += (num % 10); num /= 10;
+      sum += (num % 10);
+      num /= 10;
     }
 
     if (a <= sum && sum <= b) {
@@ -261,6 +266,7 @@ void main() {
   ans.writeln;
 }
                             </code></pre>
+                            <p> D言語はC++でいうstd::uniqueがあるそうなので, これを使うとかなり短めに書けます(あとで).</p>
                         </li>
                         <li>
                             <a href="" target="_blank">Otoshidama</a>
@@ -304,7 +310,7 @@ void main() {
                             <a href="" target="_blank">Daydream</a>
                             <p>
                                 文字列Sが与えられるので, "dream", "dreamer", "erase", "eraser"の4つの文字列を複数回使用してSにできますか?という問題です.
-                                <br> 一見面倒ですが, Sを後ろから調べることで貪欲に解くことが出来ます.
+                                <br> 一見面倒ですが, Sを後ろから調べていくことで貪欲に解くことが出来ます.
                             </p>
                             <pre><code class="d">
 import std.stdio;
@@ -351,7 +357,7 @@ void main() {
                         </li>
                         <li>
                             <a href="" target="_blank">Traveling</a>
-                            <p>説明がめんどくさいので簡単にまとめると, AtCoDeerくんの旅行計画が与えられるので, そのような軽作が可能かどうかを判定してください, という問題です.
+                            <p>説明がめんどくさいので簡単にまとめると, AtCoDeerくんの旅行計画が与えられるので, その計画が実現できるかどうかを判定してください, という問題です.
                                 <br> この問題では, ある時刻tでの位置(x, y)と, 次の時刻t'での位置(x', y')について, 時刻の差と2点間の距離に着目してあげると解くことが出来ます.
                             </p>
                             <pre><code class="d">
