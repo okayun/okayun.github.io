@@ -1,0 +1,296 @@
+<!DOCTYPE HTML>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+    <title>
+        おかゆのページ
+    </title>
+    <link rel="stylesheet" href="./style.css">
+    <link rel="stylesheet" href="./programming.css">
+
+    <!-- syntax highlighter -->
+    <!--
+    <script src="./syntaxhighlighter/scripts/shCore.js"></script>
+    <script src="./syntaxhighlighter/scripts/shBrushCpp.js"></script>
+    <link rel="stylesheet" href="./syntaxhighlighter/styles/shCoreDefault.css" type="text/css" />
+    <script type="text/javascript">
+        SyntaxHighlighter.all();
+    </script>
+    -->
+    <!-- syntax highlighter -->
+
+    <!-- highlight.js -->
+    <link rel="stylesheet" href="./obsidian.css">
+    <script src="./highlight.pack.js"></script>
+</head>
+
+<body>
+    <div id="pageAll">
+        <!-- ヘッダ -->
+        <header id="pageHead">
+            <h1 id="siteTitle">
+                おかゆのページ
+            </h1>
+            <p id="catchcopy">
+                パスタを茹ですぎたときの絶望感といったら...
+            </p>
+
+            <nav class="globalNavi">
+                <ul>
+                    <li>
+                        <a href="https://okayun.github.io">ホーム</a>
+                    </li>
+                    <li class="current">
+                        <a href="https://okayun.github.io/programming.html">プログラミング関係</a>
+                    </li>
+                    <li>
+                        <a href="https://okayun.github.io/React.html">React</a>
+                    </li>
+                </ul>
+            </nav>
+        </header>
+
+
+        <div id="pageBody">
+            <!-- ウェブページのメインコンテンツ -->
+            <div id="pageBodyMain">
+                <article>
+                    <h1 class="chapter"> AtCoder Beginners Selection(Python3) </h1>
+                    <p>
+                        ここでは, AtCoder Beginners SelectionをPython3を使って解いたときのソースコードを載せます. D言語の方で概要など説明していますので, こちらではソースコードくらいしか載せません.
+                    </p>
+
+                    <ol>
+                        <li>
+                            <a href="https://beta.atcoder.jp/contests/abc086/tasks/abc086_a" target="_blank">Product</a>
+                            <pre><code class="python">
+a, b = list(map(int, input().split()))
+
+if (a * b) % 2 == 0:
+    print("Even")
+else:
+    print("Odd")
+                            </code></pre>
+                        </li>
+
+                        <li>
+                            <a href="" target="_blank">Placing Marbles</a>
+                            <pre><code class="python">
+# input() はchar配列. count(x)は配列にxが何個あるかを数える
+print(input().count('1'))
+                            </code></pre>
+                        </li>
+                        <li>
+                            <a href="" target="_blank">Shift Only</a>
+                            <pre><code class="python">
+n = int(input())
+a = list(map(int, input().split()))
+ans = 1000000007
+
+for i in a:
+    tmp = 0
+    while (i % 2 == 0 and i > 0):
+        tmp += 1
+        i /= 2
+    
+    ans = min(ans, tmp)
+
+print(ans)
+                            </code></pre>
+                        </li>
+                        <li>
+                            <a href="" target="_blank">Coins</a>
+                            <pre><code class="python">
+a = int(input())
+b = int(input())
+c = int(input())
+x = int(input())
+
+ans = 0
+
+for i in range(0, a + 1):
+    for j in range(0, b + 1):
+        for k in range(0, c + 1):
+            sum = 500 * i + 100 * j + 50 * k
+
+            if sum == x:
+                ans += 1
+            elif sum > x:
+                break;
+
+
+print(ans)
+                            </code></pre>
+                        </li>
+                        <li>
+                            <a href="" target="_blank">Some Sums</a>
+                            <pre><code class="python">
+n, a, b = list(map(int, input().split()))
+ans = 0
+
+for i in range(1, n + 1):
+    # 割とスッキリ書けた
+    digit_sum = sum(map(int, list(str(i))))
+
+    if a <= digit_sum and digit_sum <= b:
+        ans += i
+
+print(ans)
+                            </code></pre>
+                        </li>
+                        <li>
+                            <a href="" target="_blank">Card Game for Two</a>
+                            <pre><code class="python">
+n = int(input())
+a = list(map(int, input().split()))
+
+# リストの中身を降順ソートする
+# 元のリストを保持したいならsorted()
+a.sort(reverse = True)
+
+alice, bob = 0, 0
+
+for i in range(0, len(a)):
+    if i % 2 == 0:
+        alice += a[i]
+    else:
+        bob += a[i]
+
+print(alice - bob)                                
+                            </code></pre>
+                        </li>
+                        <li>
+                            <a href="" target="_blank">Kagami Mochi</a>
+                            <pre><code class="python">
+n = int(input())
+
+ans = 0
+dicts = {} # 空の辞書(連想配列)を生成
+
+for i in range(0, n):
+    d = int(input())
+
+    if not(d in dicts):
+        dicts[d] = True
+        ans += 1
+
+print(ans)
+                            </code></pre>
+                        </li>
+                        <li>
+                            <a href="" target="_blank">Otoshidama</a>
+                            <pre><code class="python">
+n, y = list(map(int, input().split()))
+
+flag = False
+
+for i in range(0, n + 1):
+    for j in range(0, n + 1 - i):
+        k = n - i - j
+        money = 10000 * i + 5000 * j + 1000 * k
+
+        if money == y:
+            print(i, j, k)
+            flag = True # 多重ループ抜ける用
+            break
+
+    if flag:
+        break
+
+
+if not(flag):
+    print(-1, -1, -1)                                
+                            </code></pre>
+                        </li>
+                        <li>
+                            <a href="" target="_blank">Daydream</a>
+                            <pre><code class="python">
+s = input()
+
+p = len(s)
+
+while p > 0:
+    if p >= 7 and s[(p - 7):p] == "dreamer":
+        p -= 7
+    elif p >= 6 and s[(p - 6):p] == "eraser":
+        p -= 6
+    elif p >= 5 and s[(p - 5):p] == "dream":
+        p -= 5
+    elif p >= 5 and s[(p - 5):p] == "erase":
+        p -= 5
+    else:
+        p = -1
+        break
+
+if p == 0:
+    print("YES")
+else:
+    print("NO")
+                                                       
+                            </code></pre>
+                        </li>
+                        <li>
+                            <a href="" target="_blank">Traveling</a>
+                            <p></p>
+                            <pre><code class="python">
+n = int(input())
+st, sx, sy = 0, 0, 0
+
+is_reach = True
+
+for i in range(0, n):
+    gt, gx, gy = list(map(int, input().split()))
+    t = gt - sy
+    dist = abs(gx - sx) + abs(gy - sy)
+
+    if not(t >= dist and (t - dist) % 2 == 0):
+        is_reach = False
+        break
+
+
+if is_reach:
+    print("Yes")
+else:
+    print("No")
+                            </code></pre>
+                        </li>
+
+                    </ol>
+                </article>
+            </div>
+
+
+            <!-- ウェブページのサブコンテンツかなにか -->
+            <div id="pageBodySub">
+                <nav class="localNavi">
+                    <h1 class="subContentsTitle">各種リンク</h1>
+                    <ul>
+                        <li>
+                            <a href="https://beta.atcoder.jp/users/otyaduke_117" target="_blank">おかゆ(AtCoder)</a>
+                        </li>
+                        <li>
+                            <a href="http://codeforces.com/profile/okayu" target="_blank">おかゆ(Codeforces)</a>
+                        </li>
+                        <li>
+                            <a href="https://www.codingame.com/profile/9509707e2cfc38002fecac65fd48b19f2757061" target="_blank">おかゆ(CodinGame)</a>
+                        </li>
+                        <li>
+                            <a href="http://okayunonaha.hatenablog.com/">おかゆ(はてなブログ)</a>
+                        </li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+
+
+        <!-- フッタ -->
+        <footer id="pageFoot">
+            <p id="copyright">
+                <small>Copyright&copy; 2018 おかゆのページ All Rights Reserved.</small>
+            </p>
+        </footer>
+    </div>
+</body>
+
+</html>
