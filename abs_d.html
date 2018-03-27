@@ -266,7 +266,27 @@ void main() {
   ans.writeln;
 }
                             </code></pre>
-                            <p> D言語はC++でいうstd::uniqueがあるそうなので, これを使うとかなり短めに書けます(あとで).</p>
+                            <p> D言語はC++でいうstd::uniqueがあるそうなので, これを使うとかなり短めに書けます.</p>
+                            <pre><code class="d">
+import std.stdio;
+import std.algorithm;
+import std.array;
+import std.conv;
+import std.string;
+
+void main() {
+  int n = readln.chomp.to!int;
+  int[] d; // 動的配列
+
+  foreach (i; 0..n) {
+    d ~= [readln.chomp.to!int]; // 配列の結合
+  }
+
+  d.sort!().uniq.array.length.writeln;
+
+  return;
+}
+                            </code></pre>                            
                         </li>
                         <li>
                             <a href="" target="_blank">Otoshidama</a>
