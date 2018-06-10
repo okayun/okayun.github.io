@@ -1,0 +1,166 @@
+<!DOCTYPE HTML>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+    <title>
+        おかゆのページ
+    </title>
+    <link rel="stylesheet" href="../style.css">
+    <link rel="stylesheet" href="../programming.css">
+    <!-- syntax highlighter -->
+    <!--
+    <script src="./syntaxhighlighter/scripts/shCore.js"></script>
+    <script src="./syntaxhighlighter/scripts/shBrushCpp.js"></script>
+    <link rel="stylesheet" href="./syntaxhighlighter/styles/shCoreDefault.css" type="text/css" />
+    <script type="text/javascript">
+        SyntaxHighlighter.all();
+    </script>
+    -->
+    <!-- syntax highlighter -->
+
+    <!-- highlight.js -->
+    <link rel="stylesheet" href="../obsidian.css">
+    <script src="../highlight.pack.js"></script>
+</head>
+
+<body>
+    <div id="pageAll">
+        <!-- ヘッダ -->
+        <header id="pageHead">
+            <h1 id="siteTitle">
+                おかゆのページ
+            </h1>
+            <p id="catchcopy">
+                パスタを茹ですぎたときの絶望感といったら...
+            </p>
+
+            <nav class="globalNavi">
+                <ul>
+                    <li>
+                        <a href="https://okayun.github.io">ホーム</a>
+                    </li>
+                    <li class="current">
+                        <a href="https://okayun.github.io/programming.html">プログラミング関係</a>
+                    </li>
+                    <li>
+                        <a href="https://okayun.github.io/React.html">React</a>
+                    </li>
+                </ul>
+            </nav>
+        </header>
+
+
+        <div id="pageBody">
+            <!-- ウェブページのメインコンテンツ -->
+            <div id="pageBodyMain">
+                <article>
+                    <h1 class="chapter"> Dijkstra </h1>
+                    <p>dijkstra(graph, start) : graph において, 始点 start から各頂点への最短距離を返す. O(Elog(V)) なはず?</p>
+                    <pre><code class="c++">
+#include &lt;iostream>
+#include &lt;algorithm>
+#include &lt;queue>
+#include &lt;vector>
+ 
+using std::cin;
+using std::cout;
+using std::cerr;
+using std::endl;
+ 
+/*
+ * dijkstra 法 O(Elog(V))
+ * グラフ g において, 始点 start から各頂点への最短経路を返す
+*/
+struct Edge {
+public:
+  int to, cost;
+ 
+  Edge() {}
+  Edge(int to, int cost) : to(to), cost(cost) {}
+};
+ 
+std::vector&lt;int> dijkstra(std::vector&lt;std::vector&lt;Edge> >& graph, int start) {
+  std::vector&lt;int> d(graph.size(), int(1e9));
+  // (x, y) ... x : the minimum distance from start to y, y : now vertex 
+  std::priority_queue&lt;std::pair&lt;int, int> > que;
+ 
+  que.push({0, start});
+  d[start] = 0;
+ 
+  while(!que.empty()) {
+    auto p = que.top();
+    que.pop();
+ 
+    for (auto e : graph[p.second]) {
+      if (d[e.to] &lt;= p.first + e.cost) continue;
+ 
+      d[e.to] = p.first + e.cost;
+      que.push({d[e.to], e.to});
+    }
+  }
+ 
+  return d;
+}
+ 
+ 
+int main() {
+  int n, u, k, v, c;
+  std::vector&lt;std::vector&lt;Edge> > g;
+ 
+  cin >> n;
+  g.resize(n);
+  for (int i = 0; i &lt; n; ++i) {
+    cin >> u >> k;
+    for (int j = 0; j &lt; k; ++j) {
+      cin >> v >> c;
+      g[u].push_back({v, c});
+    }
+  }
+ 
+  auto d = dijkstra(g, 0);
+ 
+  for (int i = 0; i &lt; n; ++i) {
+    cout &lt;&lt; i &lt;&lt; " " &lt;&lt; d[i] &lt;&lt; endl;
+  }
+ 
+  return 0;
+}
+                    </code></pre>
+                </article>
+            </div>
+
+
+            <!-- ウェブページのサブコンテンツかなにか -->
+            <div id="pageBodySub">
+                <nav class="localNavi">
+                    <h1 class="subContentsTitle">各種リンク</h1>
+                    <ul>
+                        <li>
+                            <a href="https://beta.atcoder.jp/users/otyaduke_117" target="_blank">おかゆ(AtCoder)</a>
+                        </li>
+                        <li>
+                            <a href="http://codeforces.com/profile/okayu" target="_blank">おかゆ(Codeforces)</a>
+                        </li>
+                        <li>
+                            <a href="https://www.codingame.com/profile/9509707e2cfc38002fecac65fd48b19f2757061" target="_blank">おかゆ(CodinGame)</a>
+                        </li>
+                        <li>
+                            <a href="http://okayunonaha.hatenablog.com/">おかゆ(はてなブログ)</a>
+                        </li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+
+
+        <!-- フッタ -->
+        <footer id="pageFoot">
+            <p id="copyright">
+                <small>Copyright&copy; 2018 おかゆのページ All Rights Reserved.</small>
+            </p>
+        </footer>
+    </div>
+</body>
+
+</html>
