@@ -60,30 +60,25 @@
                     <p>Verifyはまだ</p>
 
                     <pre><code class="c++">
-#include <iostream>
-#include <algorithm>
-#include <vector>
-
 /**
  * Verifyする
 */
-
-template <typename T>
+template &lt;typename T>
 class StarrySkyTree {
 private:
   int n;
   T init;
-  std::vector<T> seg, __add;
+  std::vector&lt;T> seg, __add;
 
   int Size (int N) {
     int ret;
-    for (ret = 1; ret < N; ret <<= 1);
+    for (ret = 1; ret &lt; N; ret &lt;&lt;= 1);
     return ret;
   }
 
   T Query(int a, int b, int k, int l, int r) {
-    if (r <= a or b <= l) return int(1e9); ///
-    if (a <= l and r <= b) return seg[k] + __add[k];
+    if (r &lt;= a or b &lt;= l) return int(1e9); ///
+    if (a &lt;= l and r &lt;= b) return seg[k] + __add[k];
 
     T vl = Query(a, b, k * 2 + 1, l, (l + r) / 2);
     T vr = Query(a, b, k * 2 + 2, (l + r) / 2, r);
@@ -91,8 +86,8 @@ private:
   }
 
   void _Add(int a, int b, int x, int k, int l, int r) {
-    if (r <= a || b <= l) return; // 交差しない区間であれば終了
-    if (a <= l && r <= b) { // 現在の区間が完全に内包されていればxを加算して終了
+    if (r &lt;= a || b &lt;= l) return; // 交差しない区間であれば終了
+    if (a &lt;= l && r &lt;= b) { // 現在の区間が完全に内包されていればxを加算して終了
         __add[k] += x;
         return;
     }
@@ -117,10 +112,6 @@ public:
       _Add(a, b, x, 0, 0, n);
   }
 };
-
-int main() {
-  return 0;
-}
                     </code></pre>
                 </article>
             </div>
