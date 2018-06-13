@@ -1,0 +1,171 @@
+<!DOCTYPE HTML>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+    <title>
+        おかゆのページ
+    </title>
+    <link rel="stylesheet" href="../style.css">
+    <link rel="stylesheet" href="../programming.css">
+    <!-- syntax highlighter -->
+    <!--
+    <script src="./syntaxhighlighter/scripts/shCore.js"></script>
+    <script src="./syntaxhighlighter/scripts/shBrushCpp.js"></script>
+    <link rel="stylesheet" href="./syntaxhighlighter/styles/shCoreDefault.css" type="text/css" />
+    <script type="text/javascript">
+        SyntaxHighlighter.all();
+    </script>
+    -->
+    <!-- syntax highlighter -->
+
+    <!-- highlight.js -->
+    <link rel="stylesheet" href="../obsidian.css">
+    <script src="../highlight.pack.js"></script>
+</head>
+
+<body>
+    <div id="pageAll">
+        <!-- ヘッダ -->
+        <header id="pageHead">
+            <h1 id="siteTitle">
+                おかゆのページ
+            </h1>
+            <p id="catchcopy">
+                パスタを茹ですぎたときの絶望感といったら...
+            </p>
+
+            <nav class="globalNavi">
+                <ul>
+                    <li>
+                        <a href="https://okayun.github.io">ホーム</a>
+                    </li>
+                    <li class="current">
+                        <a href="https://okayun.github.io/programming.html">プログラミング関係</a>
+                    </li>
+                    <li>
+                        <a href="https://okayun.github.io/React.html">React</a>
+                    </li>
+                </ul>
+            </nav>
+        </header>
+
+
+        <div id="pageBody">
+            <!-- ウェブページのメインコンテンツ -->
+            <div id="pageBodyMain">
+                <article>
+                    <h1 class="chapter"> Strongly Connected Component Decomposition </h1>
+                    <p>強連結成分分解のスニペット</p>
+                    <p>色んな方のブログやスニペットを参考にしました</p>
+
+                    <pre><code class="c++">
+#include &lt;iostream>
+#include &lt;algorithm>
+#include &lt;stack>
+#include &lt;vector>
+
+// Strongly Connected Component Decomposition
+class SCC {
+private:
+  int n;
+  std::vector&lt;std::vector&lt;int> > g, rg;
+  std::vector&lt;int> cmp;
+  std::vector&lt;bool> used;
+  std::stack&lt;int> st;
+
+public:
+  SCC(int V) : n(V), g(V), rg(V), cmp(V), used(V, false) {}
+
+  void addEdge(int from, int to) {
+    g[from].push_back(to);
+    rg[to].push_back(from);
+  }
+
+  // あとでラムダ式verに書き直す
+  void dfs(int v) {
+    used[v] = true;
+    int size_ = g[v].size();
+
+    for (int i = 0; i < size_; ++i) {
+      if (!used[g[v][i]]) dfs(g[v][i]);
+    }
+
+    st.push(v);
+  }
+
+  void rdfs(int v, int k) {
+    used[v] = true;
+    cmp[v] = k;
+    int size_ = rg[v].size();
+
+    for (int i = 0; i < size_; ++i) {
+      if (!used[rg[v][i]]) rdfs(rg[v][i], k);
+    }
+
+    st.push(v);
+  }
+
+  // 分解
+  int scc() {
+    for (int i = 0; i < n; ++i) if (!used[i]) dfs(i);
+
+    used.assign(n, false);
+
+    int k = 0;
+
+    while (!st.empty()) {
+      if (!used[st.top()]) rdfs(st.top(), k++);
+      st.pop();
+    }
+
+    return k;
+  }
+
+  // 頂点xと頂点yが同じ連結成分に属しているかどうか
+  bool same(int x, int y) {
+    return (cmp[x] == cmp[y]);
+  }
+};
+
+int main() {
+  return 0;
+}
+                    </code></pre>
+                </article>
+            </div>
+
+
+            <!-- ウェブページのサブコンテンツかなにか -->
+            <div id="pageBodySub">
+                <nav class="localNavi">
+                    <h1 class="subContentsTitle">各種リンク</h1>
+                    <ul>
+                        <li>
+                            <a href="https://beta.atcoder.jp/users/otyaduke_117" target="_blank">おかゆ(AtCoder)</a>
+                        </li>
+                        <li>
+                            <a href="http://codeforces.com/profile/okayu" target="_blank">おかゆ(Codeforces)</a>
+                        </li>
+                        <li>
+                            <a href="https://www.codingame.com/profile/9509707e2cfc38002fecac65fd48b19f2757061" target="_blank">おかゆ(CodinGame)</a>
+                        </li>
+                        <li>
+                            <a href="http://okayunonaha.hatenablog.com/">おかゆ(はてなブログ)</a>
+                        </li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+
+
+        <!-- フッタ -->
+        <footer id="pageFoot">
+            <p id="copyright">
+                <small>Copyright&copy; 2018 おかゆのページ All Rights Reserved.</small>
+            </p>
+        </footer>
+    </div>
+</body>
+
+</html>
