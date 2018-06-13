@@ -59,15 +59,6 @@
                     <p>サイコロのスニペット (詳細はコメントを参照)</p>
 
                     <pre><code class="c++">
-#include &lt;iostream>
-#include &lt;algorithm>
-#include &lt;vector>
-
-using std::cin;
-using std::cout;
-using std::cerr;
-using std::endl;
-
 /*
         back
          |
@@ -126,6 +117,7 @@ struct Dice {
   }
 };
 
+/* 使用例 */
 int main() {
   Dice dice(0, 1, 2, 3, 4, 5); // こんな感じ
   dice.Rotate(1);
