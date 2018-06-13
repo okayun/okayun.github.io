@@ -59,23 +59,19 @@
                     <p>区間和や一点に対する更新, 加算が O(logN) で可能なデータ構造</p>
 
                     <pre><code class="c++">
-#include <iostream>
-#include <algorithm>
-#include <vector>
-
 // BITはTにする意味あまりないような…
-template<typename T>
+template&lt;typename T>
 class BIT {
 private:
   int N;
-  std::vector<T> bit;
+  std::vector&lt;T> bit;
 
 public:
   // bit を i で初期化する
   BIT(int N, T i) : N(N), bit(N, i) {}
 
   void Add (int k, const T& a) {
-    for (; k < N; k |= k + 1) bit[k] += a;
+    for (; k &lt; N; k |= k + 1) bit[k] += a;
   }
 
   void Set(int k, const T& a) {
@@ -94,10 +90,6 @@ public:
     return Sum(r) - Sum(l);
   }
 };
-
-int main() {
-  return 0;
-}
                     </code></pre>
                 </article>
             </div>
