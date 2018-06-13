@@ -1,0 +1,161 @@
+<!DOCTYPE HTML>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+    <title>
+        おかゆのページ
+    </title>
+    <link rel="stylesheet" href="../style.css">
+    <link rel="stylesheet" href="../programming.css">
+    <!-- syntax highlighter -->
+    <!--
+    <script src="./syntaxhighlighter/scripts/shCore.js"></script>
+    <script src="./syntaxhighlighter/scripts/shBrushCpp.js"></script>
+    <link rel="stylesheet" href="./syntaxhighlighter/styles/shCoreDefault.css" type="text/css" />
+    <script type="text/javascript">
+        SyntaxHighlighter.all();
+    </script>
+    -->
+    <!-- syntax highlighter -->
+
+    <!-- highlight.js -->
+    <link rel="stylesheet" href="../obsidian.css">
+    <script src="../highlight.pack.js"></script>
+</head>
+
+<body>
+    <div id="pageAll">
+        <!-- ヘッダ -->
+        <header id="pageHead">
+            <h1 id="siteTitle">
+                おかゆのページ
+            </h1>
+            <p id="catchcopy">
+                パスタを茹ですぎたときの絶望感といったら...
+            </p>
+
+            <nav class="globalNavi">
+                <ul>
+                    <li>
+                        <a href="https://okayun.github.io">ホーム</a>
+                    </li>
+                    <li class="current">
+                        <a href="https://okayun.github.io/programming.html">プログラミング関係</a>
+                    </li>
+                    <li>
+                        <a href="https://okayun.github.io/React.html">React</a>
+                    </li>
+                </ul>
+            </nav>
+        </header>
+
+
+        <div id="pageBody">
+            <!-- ウェブページのメインコンテンツ -->
+            <div id="pageBodyMain">
+                <article>
+                    <h1 class="chapter"> Starry Sky Tree </h1>
+                    <p>区間に対する操作がO(logN)でできるデータ構造</p>
+                    <p>Verifyはまだ</p>
+
+                    <pre><code class="c++">
+#include <iostream>
+#include <algorithm>
+#include <vector>
+
+/**
+ * Verifyする
+*/
+
+template <typename T>
+class StarrySkyTree {
+private:
+  int n;
+  T init;
+  std::vector<T> seg, __add;
+
+  int Size (int N) {
+    int ret;
+    for (ret = 1; ret < N; ret <<= 1);
+    return ret;
+  }
+
+  T Query(int a, int b, int k, int l, int r) {
+    if (r <= a or b <= l) return int(1e9); ///
+    if (a <= l and r <= b) return seg[k] + __add[k];
+
+    T vl = Query(a, b, k * 2 + 1, l, (l + r) / 2);
+    T vr = Query(a, b, k * 2 + 2, (l + r) / 2, r);
+    return (min(vl, vr) + __add[k]); ///
+  }
+
+  void _Add(int a, int b, int x, int k, int l, int r) {
+    if (r <= a || b <= l) return; // 交差しない区間であれば終了
+    if (a <= l && r <= b) { // 現在の区間が完全に内包されていればxを加算して終了
+        __add[k] += x;
+        return;
+    }
+
+    _add(a, b, x, k * 2 + 1, l, (l + r) / 2);
+    _add(a, b, x, k * 2 + 2, (l + r) / 2, r);
+
+    seg[k] = min(seg[k * 2 + 1] + __add[k * 2 + 1], seg[k * 2 + 2] + __add[k * 2 + 2]); ///
+  }
+
+public:
+  ///
+  StarrySkyTree (int N) : n(Size(N)), seg(Size(N) * 2, 0), __add(Size(N) * 2, 0), init(0) {}
+
+  // [l, r) 開区間であることに注意!!! ... [l, r]ならfind(l, r + 1)
+  T Find(int l, int r) {
+    return Query(l, r, 0, 0, n);
+  }
+
+  // [a, b) に x を「加算」する
+  void Add(int a, int b, int x) {
+      _Add(a, b, x, 0, 0, n);
+  }
+};
+
+int main() {
+  return 0;
+}
+                    </code></pre>
+                </article>
+            </div>
+
+
+            <!-- ウェブページのサブコンテンツかなにか -->
+            <div id="pageBodySub">
+                <nav class="localNavi">
+                    <h1 class="subContentsTitle">各種リンク</h1>
+                    <ul>
+                        <li>
+                            <a href="https://beta.atcoder.jp/users/otyaduke_117" target="_blank">おかゆ(AtCoder)</a>
+                        </li>
+                        <li>
+                            <a href="http://codeforces.com/profile/okayu" target="_blank">おかゆ(Codeforces)</a>
+                        </li>
+                        <li>
+                            <a href="https://www.codingame.com/profile/9509707e2cfc38002fecac65fd48b19f2757061" target="_blank">おかゆ(CodinGame)</a>
+                        </li>
+                        <li>
+                            <a href="http://okayunonaha.hatenablog.com/">おかゆ(はてなブログ)</a>
+                        </li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+
+
+        <!-- フッタ -->
+        <footer id="pageFoot">
+            <p id="copyright">
+                <small>Copyright&copy; 2018 おかゆのページ All Rights Reserved.</small>
+            </p>
+        </footer>
+    </div>
+</body>
+
+</html>
