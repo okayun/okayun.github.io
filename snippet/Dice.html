@@ -88,7 +88,7 @@ struct Dice {
   * dir := 2 (90° back方向へ回転)
   * dir := 3 (90° left方向へ回転)
   */
-  void rotate(int dir) {
+  void Rotate(int dir) {
     int tmp;
 
     if (dir == 0) {
@@ -121,15 +121,15 @@ struct Dice {
     }
   }
 
-  void print() {
+  void Print() {
     cerr &lt;&lt; "         " &lt;&lt; back &lt;&lt; "\n\n         |\n\n" &lt;&lt; left &lt;&lt; "    --  " &lt;&lt; top &lt;&lt; "  --   " &lt;&lt; right &lt;&lt; "   --   " &lt;&lt; bottom &lt;&lt; "\n\n         |\n\n         " &lt;&lt; front &lt;&lt; endl;
   }
 };
 
 int main() {
   Dice dice(0, 1, 2, 3, 4, 5); // こんな感じ
-  dice.rotate(1);
-  dice.print();
+  dice.Rotate(1);
+  dice.Print();
   
   return 0;
 }
