@@ -159,14 +159,14 @@ body {
 
 a {
   text-decoration: none;
-  color: rgb(255, 128, 0);
+  color: rgb(42, 56, 252);
 }
 
 .chapter {
   font-size: 24pt;
   line-height: 1.2;
   /*border-bottom: solid 2px #FE9A2E;*/
-  border-left: solid 8px #FE9A2E;
+  border-left: solid 8px rgb(7, 123, 248);
   padding-left: 10px;
   margin-top: 0;
 }
@@ -174,7 +174,7 @@ a {
 .subContentsTitle {
   font-size: 18pt;
   line-height: 1.2;
-  background-color: #F7BE81;
+  background-color: rgb(137, 207, 253);
   /*border-bottom: solid 1px #FE9A2E;*/
   /*border-left: solid 8px #FE9A2E;*/
   /*padding-left: 10px;*/
