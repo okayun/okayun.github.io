@@ -38,7 +38,7 @@
 /* ページボディ */
 
 body {
-  background-color: rgb(177, 94, 50);
+  background-color: rgb(209, 168, 145);
 }
 
 #pageAll {
@@ -125,7 +125,7 @@ body {
 
 /* リンクにマウスポインタが重なったときの設定 */
 #pageHead .globalNavi ul li a:hover {
-  background-color: rgb(204, 144, 111); /* 背景色変更 */
+  background-color: rgb(209, 168, 145); /* 背景色変更 */
 }
 
 #pageBodySub .localNavi ul {
@@ -143,7 +143,7 @@ body {
 }
 
 #pageBodySub .localNavi ul li a:hover {
-  background-color: rgb(204, 144, 111);
+  background-color: rgb(209, 168, 145);
 }
 
 /* clearfix */
@@ -174,7 +174,7 @@ a {
 .subContentsTitle {
   font-size: 18pt;
   line-height: 1.2;
-  background-color: rgb(204, 144, 111);
+  background-color: rgb(209, 168, 145);
   /*border-bottom: solid 1px #FE9A2E;*/
   /*border-left: solid 8px #FE9A2E;*/
   /*padding-left: 10px;*/
