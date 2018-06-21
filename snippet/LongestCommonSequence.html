@@ -59,10 +59,10 @@
                     <p>最長共通部分列</p>
                     <p>与えられた文字列 S, T の最長共通部分列の長さを求める. 計算量は O(nm).</p>
                     <pre><code class="c++">
-#include <iostream>
-#include <string>
-#include <map>
-#include <vector>
+#include &lt;iostream>
+#include &lt;string>
+#include &lt;map>
+#include &lt;vector>
 
 using std::cin;
 using std::cout;
@@ -71,10 +71,10 @@ using std::endl;
 
 // 最長共通部分列 ... len(s) == m, len(t) == n とすると, O(mn)
 int lcs(std::string s, std::string t) {
-  std::vector<std::vector<int> > dp(s.size() + 1, std::vector<int>(t.size() + 1, 0));
+  std::vector&lt;std::vector&lt;int> > dp(s.size() + 1, std::vector&lt;int>(t.size() + 1, 0));
 
-  for (int i = 1; i <= s.size(); ++i) {
-    for (int j = 1; j <= t.size(); ++j) {
+  for (int i = 1; i &lt;= s.size(); ++i) {
+    for (int j = 1; j &lt;= t.size(); ++j) {
       if (s[i - 1] == t[j - 1]) {
         dp[i][j] = dp[i - 1][j - 1] + 1;
       }
@@ -95,7 +95,7 @@ int main() {
 
   cin >> s >> t;
 
-  cout << lcs(s, t) << endl;
+  cout &lt;&lt; lcs(s, t) &lt;&lt; endl;
 
   return 0;
 }
