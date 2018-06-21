@@ -56,8 +56,8 @@
             <div id="pageBodyMain">
                 <article>
                     <h1 class="chapter"> Longest Common Sequence </h1>
-                    <p>最長共通部分列</p>
-                    <p>与えられた文字列 S, T の最長共通部分列の長さを求める. 計算量は O(nm).</p>
+                    <p>最長共通部分列のスニペット</p>
+                    <p>与えられた文字列 S, T の最長共通部分列を求める. 計算量は O(nm).</p>
                     <pre><code class="c++">
 #include &lt;iostream>
 #include &lt;string>
@@ -70,15 +70,15 @@ using std::cerr;
 using std::endl;
 
 // 最長共通部分列 ... len(s) == m, len(t) == n とすると, O(mn)
-int lcs(std::string s, std::string t) {
-  std::vector&lt;std::vector&lt;int> > dp(s.size() + 1, std::vector&lt;int>(t.size() + 1, 0));
+std::string lcs(std::string& s, std::string& t) {
+  std::vector&lt;std::vector&lt;std::string> > dp(s.size() + 1, std::vector&lt;std::string>(t.size() + 1, ""));
 
   for (int i = 1; i &lt;= s.size(); ++i) {
     for (int j = 1; j &lt;= t.size(); ++j) {
       if (s[i - 1] == t[j - 1]) {
-        dp[i][j] = dp[i - 1][j - 1] + 1;
+        dp[i][j] = dp[i - 1][j - 1] + s[i - 1];
       }
-      else if (dp[i - 1][j] >= dp[i][j - 1]) {
+      else if (dp[i - 1][j].size() >= dp[i][j - 1].size()) {
         dp[i][j] = dp[i - 1][j];
       }
       else {
@@ -92,9 +92,7 @@ int lcs(std::string s, std::string t) {
 
 int main() {
   std::string s, t;
-
   cin >> s >> t;
-
   cout &lt;&lt; lcs(s, t) &lt;&lt; endl;
 
   return 0;
