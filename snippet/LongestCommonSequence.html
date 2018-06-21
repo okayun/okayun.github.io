@@ -1,0 +1,139 @@
+<!DOCTYPE HTML>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+    <title>
+        おかゆのページ
+    </title>
+    <link rel="stylesheet" href="../style.css">
+    <link rel="stylesheet" href="../programming.css">
+    <!-- syntax highlighter -->
+    <!--
+    <script src="./syntaxhighlighter/scripts/shCore.js"></script>
+    <script src="./syntaxhighlighter/scripts/shBrushCpp.js"></script>
+    <link rel="stylesheet" href="./syntaxhighlighter/styles/shCoreDefault.css" type="text/css" />
+    <script type="text/javascript">
+        SyntaxHighlighter.all();
+    </script>
+    -->
+    <!-- syntax highlighter -->
+
+    <!-- highlight.js -->
+    <link rel="stylesheet" href="../obsidian.css">
+    <script src="../highlight.pack.js"></script>
+</head>
+
+<body>
+    <div id="pageAll">
+        <!-- ヘッダ -->
+        <header id="pageHead">
+            <h1 id="siteTitle">
+                おかゆのページ
+            </h1>
+            <p id="catchcopy">
+                パスタを茹ですぎたときの絶望感といったら...
+            </p>
+
+            <nav class="globalNavi">
+                <ul>
+                    <li>
+                        <a href="https://okayun.github.io">ホーム</a>
+                    </li>
+                    <li class="current">
+                        <a href="https://okayun.github.io/programming.html">プログラミング関係</a>
+                    </li>
+                    <li>
+                        <a href="https://okayun.github.io/React.html">React</a>
+                    </li>
+                </ul>
+            </nav>
+        </header>
+
+
+        <div id="pageBody">
+            <!-- ウェブページのメインコンテンツ -->
+            <div id="pageBodyMain">
+                <article>
+                    <h1 class="chapter"> Longest Common Sequence </h1>
+                    <p>最長共通部分列</p>
+                    <p>与えられた文字列 S, T の最長共通部分列の長さを求める. 計算量は O(nm).</p>
+                    <pre><code class="c++">
+#include <iostream>
+#include <string>
+#include <map>
+#include <vector>
+
+using std::cin;
+using std::cout;
+using std::cerr;
+using std::endl;
+
+// 最長共通部分列 ... len(s) == m, len(t) == n とすると, O(mn)
+int lcs(std::string s, std::string t) {
+  std::vector<std::vector<int> > dp(s.size() + 1, std::vector<int>(t.size() + 1, 0));
+
+  for (int i = 1; i <= s.size(); ++i) {
+    for (int j = 1; j <= t.size(); ++j) {
+      if (s[i - 1] == t[j - 1]) {
+        dp[i][j] = dp[i - 1][j - 1] + 1;
+      }
+      else if (dp[i - 1][j] >= dp[i][j - 1]) {
+        dp[i][j] = dp[i - 1][j];
+      }
+      else {
+        dp[i][j] = dp[i][j - 1];
+      }
+    }
+  }
+
+  return dp[s.size()][t.size()];
+}
+
+int main() {
+  std::string s, t;
+
+  cin >> s >> t;
+
+  cout << lcs(s, t) << endl;
+
+  return 0;
+}
+                    </code></pre>
+                </article>
+            </div>
+
+
+            <!-- ウェブページのサブコンテンツかなにか -->
+            <div id="pageBodySub">
+                <nav class="localNavi">
+                    <h1 class="subContentsTitle">各種リンク</h1>
+                    <ul>
+                        <li>
+                            <a href="https://beta.atcoder.jp/users/otyaduke_117" target="_blank">おかゆ(AtCoder)</a>
+                        </li>
+                        <li>
+                            <a href="http://codeforces.com/profile/okayu" target="_blank">おかゆ(Codeforces)</a>
+                        </li>
+                        <li>
+                            <a href="https://www.codingame.com/profile/9509707e2cfc38002fecac65fd48b19f2757061" target="_blank">おかゆ(CodinGame)</a>
+                        </li>
+                        <li>
+                            <a href="http://okayunonaha.hatenablog.com/">おかゆ(はてなブログ)</a>
+                        </li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+
+
+        <!-- フッタ -->
+        <footer id="pageFoot">
+            <p id="copyright">
+                <small>Copyright&copy; 2018 おかゆのページ All Rights Reserved.</small>
+            </p>
+        </footer>
+    </div>
+</body>
+
+</html>
