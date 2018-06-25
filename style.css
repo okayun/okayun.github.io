@@ -125,7 +125,7 @@ body {
 
 /* リンクにマウスポインタが重なったときの設定 */
 #pageHead .globalNavi ul li a:hover {
-  background-color: #F3A530; /* 背景色変更 */
+  background-color: #30499B; /* 背景色変更 */
 }
 
 #pageBodySub .localNavi ul {
