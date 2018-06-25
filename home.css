@@ -5,5 +5,5 @@
 
 /* 各ページ毎に設定 */
 #pageHead .globalNavi ul li.current a {
-  background-color: rgb(204, 144, 111);
+  background-color: #F9ED3A;
 }
