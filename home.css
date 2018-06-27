@@ -1,9 +1,9 @@
 .homeContents a {
   text-decoration: none;
-  color: #30499B;
+  color: #3B8E96;
 }
 
 /* 各ページ毎に設定 */
 #pageHead .globalNavi ul li.current a {
-  background-color: #F9ED3A;
+  background-color: #03d1ab;
 }

@@ -10,12 +10,14 @@
   /*padding: 5px 15px; /* 上下 左右 */
   /*border-bottom: solid 2px #FE9A2E;
   border-left: solid 7px #FE9A2E;*/
+  color: #3D445E;
 }
 
 #catchcopy {
   font-size: 12px;
   line-height: 1.2;
   margin-top: 0;
+  color: #3D445E;
 }
 
 /* ここまで */
@@ -25,12 +27,14 @@
 #pageHead {
   /*border-bottom: solid 1px #000000;*/
   margin-bottom: 30px;
+  color: #3D445E;
 }
 
 #pageFoot {
-  border-top: solid 1px #000000;
+  border-top: solid 1px #3D445E;
   /*border-bottom: solid 1px #000000;*/
   margin-top: 15px;
+  color: #3D445E;
 }
 
 /* ここまで */
@@ -39,6 +43,7 @@
 
 body {
   background-color: #FFFFFF;
+  color: #3D445E;
 }
 
 #pageAll {
@@ -84,7 +89,8 @@ body {
 /* ナビ */
 #pageHead .globalNavi {
   border: solid #CCCCCC;
-  border-width: 1px 0;
+  border-width: 3px 0;
+  border-color: #3B8E96;
   padding: 10px 0;
 }
 
@@ -125,7 +131,7 @@ body {
 
 /* リンクにマウスポインタが重なったときの設定 */
 #pageHead .globalNavi ul li a:hover {
-  background-color: #F3A530; /* 背景色変更 */
+  background-color: #4EB4B0; /* 重なってる時の背景色変更 */
 }
 
 #pageBodySub .localNavi ul {
@@ -143,7 +149,7 @@ body {
 }
 
 #pageBodySub .localNavi ul li a:hover {
-  background-color: #F3A530;
+  background-color: #4EB4B0;
 }
 
 /* clearfix */
@@ -158,38 +164,33 @@ body {
 /* あれこれ */
 
 a {
+  font-weight: 600;
   text-decoration: none;
-  color: #30499B;
+  color: #3B8E96;
 }
 
 .chapter {
   font-size: 24pt;
   line-height: 1.2;
-  /*border-bottom: solid 2px #FE9A2E;*/
-  border-left: solid 8px #30499B;
+  border-bottom: solid 2px #3B8E96;
+  border-left: solid 8px #3B8E96;
   padding-left: 10px;
   margin-top: 0;
 }
 
 .subContentsTitle {
-  font-size: 18pt;
+  font-size: 16pt;
   line-height: 1.2;
   background-color: #FFFFFF;
-  /*border-bottom: solid 1px #FE9A2E;*/
-  /*border-left: solid 8px #FE9A2E;*/
-  /*padding-left: 10px;*/
+  border-bottom: solid 2px #3B8E96;
+  border-left: solid 5px #3B8E96;
+  padding-left: 5px;
   margin-top: 0;
 }
 
 #newsContents {
   list-style: none;
   padding: 0;
-}
-
-.tekitou {
-  font-size: 20pt;
-  line-height: 1.2;
-  color: #FF0000;
 }
 
 time {
