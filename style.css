@@ -42,7 +42,7 @@
 /* ページボディ */
 
 body {
-  background-color: #FFFFFF;
+  background-color: #EFFFFF;
   color: #3D445E;
 }
 
@@ -51,6 +51,9 @@ body {
   padding: 0 20px;
   margin: 0 auto;
   background-color: #FFFFFF;
+  /*border-style: ridge;*/
+  /*border-color: #3D445E;*/
+  /*border-width: 0 5px;*/
 }
 
 #pageBody {
