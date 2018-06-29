@@ -51,9 +51,9 @@ body {
   padding: 0 20px;
   margin: 0 auto;
   background-color: #FFFFFF;
-  /*border-style: ridge;*/
-  /*border-color: #3D445E;*/
-  /*border-width: 0 5px;*/
+  border-style: ridge;
+  border-color: #3D445E;
+  border-width: 1px;
 }
 
 #pageBody {
@@ -79,6 +79,10 @@ body {
   width: 220px;
   float: right;
   /*background-color: #99FF66;*/
+  padding: 13px;
+  border-style: solid;
+  border-width: 0 0 0 1px;
+  border-color: #4EB4B0;
 }
 
 /*
