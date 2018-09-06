@@ -173,6 +173,10 @@ body {
 
 /* あれこれ */
 
+article ul li {
+  list-style: none;
+}
+
 a {
   font-weight: 600;
   text-decoration: none;
