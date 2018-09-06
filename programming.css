@@ -1,4 +1,6 @@
 /* 各ページ毎に設定 */
 #pageHead .globalNavi ul li.current a {
-  background-color: #03d1ab;
+  background-color: #3d445e;
+  color: white;
+  border-radius: 10px;
 }
