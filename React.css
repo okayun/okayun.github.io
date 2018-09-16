@@ -1,6 +1,11 @@
 /* 各ページ毎に設定 */
 #pageHead .globalNavi ul li.current a {
-  background-color: #3d445e;
   color: white;
+  border: solid 1px white;
   border-radius: 10px;
+}
+
+
+#pageHead .globalNavi ul li.current a:hover {
+  color: #3d445e;
 }
