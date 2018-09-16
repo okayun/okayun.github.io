@@ -5,6 +5,8 @@
   font-size: 30pt;
   line-height: 1.2;
   /*background-color: #F7BE81;*/
+  margin-top: 0;
+  padding-top: 10px;
   margin-bottom: 0;
   font-family: serif;
   /*padding: 5px 15px; /* 上下 左右 */
@@ -27,6 +29,7 @@
 #pageHead {
   /*border-bottom: solid 1px #000000;*/
   margin-bottom: 30px;
+  margin-top: 0px;
   color: #3D445E;
 }
 
@@ -34,6 +37,7 @@
   border-top: solid 1px #3D445E;
   /*border-bottom: solid 1px #000000;*/
   margin-top: 15px;
+  padding-bottom: 10px;
   color: #3D445E;
 }
 
@@ -42,7 +46,8 @@
 /* ページボディ */
 
 body {
-  background-color: #3d445e;
+  margin-top: 0;
+  margin-bottom: 0;
   color: #3D445E;
 }
 
@@ -51,9 +56,11 @@ body {
   padding: 0 20px;
   margin: 0 auto;
   background-color: #FFFFFF;
+  /*
   border-style: ridge;
   border-radius: 10px;
   border-width: 1px;
+  */
 }
 
 #pageBody {
@@ -157,6 +164,10 @@ body {
   color: #3d445e;
   /*border-radius: 10px;
   */
+}
+
+#pageBodyMain ul li {
+  margin-bottom: 5px;
 }
 
 #pageBodySub .localNavi ul {
